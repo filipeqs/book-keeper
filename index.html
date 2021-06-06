@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Keeper</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Open Modal -->
-    <h1 id="show-modal">Add Bookmark</h1>
-    <!-- Bookmarks -->
-    <div class="container" id="bookmars-container">
-      <div class="item">
-        <i
-          class="fas fa-times"
-          id="delete-bookmark"
-          title="Delete Bookmark"
-        ></i>
-        <div class="name">
-          <img src="favicon.png" alt="Favicon" />
-          <a href="https://github.com" target="_blank">Github</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Book Keeper</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Open Modal -->
+        <h1 id="show-modal">Add Bookmark</h1>
+        <!-- Bookmarks -->
+        <div class="container" id="bookmars-container">
+            <div class="item">
+                <i class="fas fa-times" id="delete-bookmark" title="Delete Bookmark"></i>
+                <div class="name">
+                    <img src="favicon.png" alt="Favicon" />
+                    <a href="https://github.com" target="_blank">Github</a>
+                </div>
+            </div>
+            <div class="item">
+                <i class="fas fa-times" id="delete-bookmark" title="Delete Bookmark"></i>
+                <div class="name">
+                    <img src="favicon.png" alt="Favicon" />
+                    <a href="https://github.com" target="_blank">Github</a>
+                </div>
+            </div>
+            <div class="item">
+                <i class="fas fa-times" id="delete-bookmark" title="Delete Bookmark"></i>
+                <div class="name">
+                    <img src="favicon.png" alt="Favicon" />
+                    <a href="https://github.com" target="_blank">Github</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="item">
-        <i
-          class="fas fa-times"
-          id="delete-bookmark"
-          title="Delete Bookmark"
-        ></i>
-        <div class="name">
-          <img src="favicon.png" alt="Favicon" />
-          <a href="https://github.com" target="_blank">Github</a>
+        <!-- Modal -->
+        <div class="modal-container" id="modal">
+            <div class="modal">
+                <i class="fas fa-times close-icon" id="close-modal"></i>
+                <div class="modal-header">
+                    <h3>Add Bookmark</h3>
+                </div>
+                <div class="modal-content">
+                    <form id="bookmark-form">
+                        <!-- Website -->
+                        <div class="form-group">
+                            <label for="website-name" class="form-label">Wesite Name</label>
+                            <input type="text" class="form-input" id="website-name" />
+                        </div>
+                        <!-- Website URL -->
+                        <div class="form-group">
+                            <label for="website-url" class="form-label">Wesite URL</label>
+                            <input type="text" class="form-input" id="website-url" />
+                        </div>
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="item">
-        <i
-          class="fas fa-times"
-          id="delete-bookmark"
-          title="Delete Bookmark"
-        ></i>
-        <div class="name">
-          <img src="favicon.png" alt="Favicon" />
-          <a href="https://github.com" target="_blank">Github</a>
-        </div>
-      </div>
-    </div>
-    <!-- Script -->
-    <script src="script.js"></script>
-  </body>
+        <!-- Script -->
+        <script src="script.js"></script>
+    </body>
 </html>
