@@ -21,3 +21,39 @@ const closeModal = () => {
 modalShow.addEventListener('click', showModal);
 modalClose.addEventListener('click', closeModal);
 window.addEventListener('click', (e) => (e.target === modal ? closeModal() : false));
+
+// Validate Form
+const validateForm = (nameValue, urlValue) => {
+    const expression =
+        /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
+    const regex = new RegExp(expression);
+
+    if (!nameValue || !urlValue) {
+        alert('Please submit values for both field');
+        return false;
+    }
+    if (!urlValue.match(regex)) {
+        alert('Please provide a valid web address');
+        return false;
+    }
+
+    // Valid
+    return true;
+};
+
+// Handle Data from Form
+const storeBookmark = (e) => {
+    e.preventDefault();
+    const nameValue = websiteNameEl.value;
+    let urlValue = websiteUrlEl.value;
+    if (!urlValue.includes('https://') && !urlValue.includes('http://')) {
+        urlValue = `https://${urlValue}`;
+    }
+
+    if (!validateForm(nameValue, urlValue)) {
+        return false;
+    }
+};
+
+// Event Listeners
+bookmarkForm.addEventListener('submit', storeBookmark);
