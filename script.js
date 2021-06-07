@@ -6,6 +6,8 @@ const websiteNameEl = document.getElementById('website-name');
 const websiteUrlEl = document.getElementById('website-url');
 const bookmarksContainer = document.getElementById('bookmars-container');
 
+let bookmarks = [];
+
 // Show Modal, Focus on Input
 const showModal = () => {
     modal.classList.add('show-modal');
@@ -41,6 +43,23 @@ const validateForm = (nameValue, urlValue) => {
     return true;
 };
 
+// Fetch Bookmars
+const fetchBookmars = () => {
+    // Get Bookmarks from localStorage if Available
+    if (localStorage.getItem('bookmarks')) {
+        bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    } else {
+        // Create bookmarks array in localStorage
+        bookmarks = [
+            {
+                name: 'Filipe Silva',
+                url: 'https://github.com/filipeqs',
+            },
+        ];
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    }
+};
+
 // Handle Data from Form
 const storeBookmark = (e) => {
     e.preventDefault();
@@ -53,7 +72,21 @@ const storeBookmark = (e) => {
     if (!validateForm(nameValue, urlValue)) {
         return false;
     }
+
+    const bookmark = {
+        name: nameValue,
+        url: urlValue,
+    };
+    bookmarks.push(bookmark);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    fetchBookmars();
+
+    bookmarkForm.reset();
+    websiteNameEl.focus();
 };
 
 // Event Listeners
 bookmarkForm.addEventListener('submit', storeBookmark);
+
+// On Load
+fetchBookmars();
